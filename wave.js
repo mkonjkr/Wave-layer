@@ -15,30 +15,27 @@ export class Wave {
         this.centerX = this.stageWidth / 2;
         this.centerY = this.stageHeight / 2;
 
-        this.pointGap = this.stageWidth / (this.totalPoints - 1);
+        //position for each points
+        this.pointGap = this.stageWidth / (this.totalPoints -1);
+
         this.init();
     }
 
     init() {
-/*         this.point = new Point(
-            this.centerX,
-            this.centerY
-        ); */
         this.points = [];
-
+        
         for (let i = 0; i < this.totalPoints; i++) {
-            const point = new Point(
+            this.points[i] = new Point(
                 this.index + i,
                 this.pointGap * i,
                 this.centerY,
             );
-            this.points[i] = point;
         }
     }
 
     draw(ctx) {
         ctx.beginPath();
-        /* ctx.fillStyle = '#ff0000'; */
+
         ctx.fillStyle = this.color;
 
         let prevX = this.points[0].x;
@@ -58,16 +55,14 @@ export class Wave {
             ctx.quadraticCurveTo(prevX, prevY, cx, cy);
             prevX = this.points[i].x;
             prevY = this.points[i].y;
-        }
 
+        }
         ctx.lineTo(prevX, prevY);
         ctx.lineTo(this.stageWidth, this.stageHeight);
         ctx.lineTo(this.points[0].x, this.stageHeight);
         ctx.fill();
         ctx.closePath();
-       /*  this.point.update(); */
 
-        //ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.PI);
         ctx.fill();
     }
 }
