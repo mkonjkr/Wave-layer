@@ -5,10 +5,11 @@ export class Point {
         this.fixedY = y;
         this.speed = 0.05;
         this.cur = index;
+        this.max = Math.random() * 100 + 50;
     }
 
     update() {
         this.cur += this.speed;
-        this.y = this.fixedY + (Math.sin(this.cur) * 100);
+        this.y = this.fixedY + (Math.sin(this.cur) * this.max);
     }
 }
