@@ -6,7 +6,7 @@ export class Sun {
         // Slide of Sun
         this.total = 50;
 
-        this.gap = 1 / this.total;
+        this.gap = 2 / this.total;
         this.originPos = [];
         this.pos = [];
         for ( let i = 0; i < this.total; i++) {
@@ -59,7 +59,6 @@ export class Sun {
             }
         }
     }
-
     
     ranInt(max) {
         return Math.random() * max;

@@ -21,12 +21,10 @@ class App {
         this.stageWidth = document.body.clientWidth;
         this.stageHeight = document.body.clientHeight;
 
-        this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
-
         this.canvas.width = this.stageWidth * 2;
         this.canvas.height = this.stageHeight * 2;
 
-        this.ctx.scale(this.pixelRatio, this.pixelRatio);
+        this.ctx.scale(2, 2);
 
         this.wavegroup.resize(this.stageWidth, this.stageHeight);
         this.sun.resize(this.stageWidth, this.stageHeight);
